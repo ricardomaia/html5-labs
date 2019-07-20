@@ -1,0 +1,50 @@
+<html>
+<head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<script   src="https://code.jquery.com/jquery-3.3.1.min.js"   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="  crossorigin="anonymous"></script>
+</head>
+<body>
+
+<h1 style="text-align: center;">Contacts</h1>
+
+<form action="save.php" method="post">
+  <ul id="fieldList">
+    <li>
+      <input name="form[0][name]" type="text" placeholder="Name" />
+    </li>
+    <li>
+      <input name="form[0][phone]" type="text" placeholder="Phone" />
+    </li>
+    <li>
+      <input name="form[0][email]" type="text" placeholder="E-Mail">
+    </li>
+  </ul>
+  <button id="addMore">Add more fields</button>
+  <br>
+  <br>
+  <input type="submit">
+</form>
+
+
+<script>
+
+$(function() {
+var i = 1;
+  $("#addMore").click(function(e) {
+  
+    e.preventDefault();
+    $("#fieldList").append("<li>&nbsp;</li>");
+    $("#fieldList").append("<li><input type='text' name='form["+ i +"][name]' placeholder='Name' /></li>");
+    $("#fieldList").append("<li><input type='text' name='form["+ i +"][phone]' placeholder='Phone' /></li>");
+    $("#fieldList").append("<li><input type='text' name='form["+ i +"][email]' placeholder='E-Mail' /></li>");
+    
+    i++;
+    
+  });
+  
+});
+
+</script>
+
+</body>
+</html>
